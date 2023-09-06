@@ -1,13 +1,14 @@
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Button, ButtonGroup, useColorMode } from '@chakra-ui/react';
+import { BsFillSunFill, BsMoonStarsFill } from 'react-icons/bs';
 
 function ThemeSwitch() {
   const { colorMode, setColorMode } = useColorMode();
 
   const buttonStyles = {
-    borderRadius: '9px',
-    px: '6',
-    py: '2',
+    borderRadius: 9,
+    gap: 2,
+    px: 6,
+    py: 2,
     _hover: { filter: 'brightness(90%)' },
   };
 
@@ -22,7 +23,7 @@ function ThemeSwitch() {
         bgColor={colorMode === 'light' ? 'gray.300' : 'transparent'}
         onClick={() => setColorMode('light')}
       >
-        <SunIcon mr={2} />
+        <BsFillSunFill size={20} />
         Light
       </Button>
       <Button
@@ -30,7 +31,7 @@ function ThemeSwitch() {
         bgColor={colorMode === 'dark' ? 'gray.600' : 'transparent'}
         onClick={() => setColorMode('dark')}
       >
-        <MoonIcon mr={2} />
+        <BsMoonStarsFill size={18} />
         Dark
       </Button>
     </ButtonGroup>

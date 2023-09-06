@@ -1,4 +1,5 @@
 import { Grid, GridItem, Show } from '@chakra-ui/react';
+import GamesGrid from './components/GamesGrid';
 import Navbar from './components/Navbar';
 import ThemeSwitch from './components/ThemeSwitch';
 
@@ -18,7 +19,9 @@ function App() {
           <ThemeSwitch />
         </GridItem>
       </Show>
-      <GridItem area="main">Main</GridItem>
+      <GridItem area="main">
+        <GamesGrid />
+      </GridItem>
     </Grid>
   );
 }

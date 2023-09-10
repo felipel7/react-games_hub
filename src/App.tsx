@@ -11,6 +11,10 @@ function App() {
         base: `"nav" "main"`,
         lg: `"nav nav" "aside main"`,
       }}
+      templateColumns={{
+        base: '1fr',
+        lg: '276px 1fr',
+      }}
     >
       <GridItem area="nav">
         <Navbar />
@@ -22,6 +26,7 @@ function App() {
             pos="sticky"
             top={6}
             left={0}
+            p={4}
             minH="calc(100vh - 24px)"
           >
             <GenreList />

@@ -17,8 +17,8 @@ function GamesGrid({ selectedGenre }: GamesGridProps) {
       {error && <Text>{error}</Text>}
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
+        paddingBlock={4}
         spacing={4}
-        paddingInline={4}
       >
         {isLoading &&
           skeletons.map(skeleton => <GameCardSkeleton key={skeleton} />)}

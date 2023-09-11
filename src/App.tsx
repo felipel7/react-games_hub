@@ -3,6 +3,7 @@ import { useState } from 'react';
 import GamesGrid from './components/GamesGrid';
 import GenreList from './components/GenreList';
 import Navbar from './components/Navbar';
+import PlatformSelector from './components/PlatformSelector';
 import ThemeSwitch from './components/ThemeSwitch';
 import { Genre } from './hooks/useGenres';
 
@@ -41,7 +42,8 @@ function App() {
           </VStack>
         </GridItem>
       </Show>
-      <GridItem area="main">
+      <GridItem area="main" padding={4}>
+        <PlatformSelector />
         <GamesGrid selectedGenre={selectedGenre} />
       </GridItem>
     </Grid>

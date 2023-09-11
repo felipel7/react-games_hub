@@ -1,4 +1,11 @@
-import { Card, CardBody, HStack, Heading, Image } from '@chakra-ui/react';
+import {
+  Card,
+  CardBody,
+  HStack,
+  Heading,
+  Image,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { Game } from '../hooks/useGames';
 import getCroppedImageUrl from '../services/image-url';
 import GameScore from './GameScore';
@@ -10,7 +17,10 @@ interface GameCardProps {
 
 function GameCard({ game }: GameCardProps) {
   return (
-    <Card overflow="hidden">
+    <Card
+      overflow="hidden"
+      bg={useColorModeValue('light.btnGroupBg', 'dark.btnGroupBg')}
+    >
       <Image src={getCroppedImageUrl(game.background_image)} />
       <CardBody>
         <HStack justifyContent="space-between">

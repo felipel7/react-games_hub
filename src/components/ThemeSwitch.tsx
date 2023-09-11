@@ -1,26 +1,30 @@
-import { Button, ButtonGroup, useColorMode } from '@chakra-ui/react';
+import {
+  Button,
+  ButtonGroup,
+  useColorMode,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { BsFillSunFill, BsMoonStarsFill } from 'react-icons/bs';
+import theme from '../theme';
 
 function ThemeSwitch() {
   const { colorMode, setColorMode } = useColorMode();
+  const colors = theme.colors[colorMode];
 
   const buttonStyles = {
+    _hover: { filter: 'brightness(90%)' },
     borderRadius: 9,
     gap: 2,
     px: 6,
     py: 2,
-    _hover: { filter: 'brightness(90%)' },
   };
 
   return (
-    <ButtonGroup
-      borderRadius={12}
-      bgColor={colorMode === 'light' ? 'gray.200' : 'gray.700'}
-      p={2}
-    >
+    <ButtonGroup borderRadius={12} bgColor={colors.btnGroupBg} p={2}>
       <Button
         {...buttonStyles}
-        bgColor={colorMode === 'light' ? 'gray.300' : 'transparent'}
+        bgColor={useColorModeValue(colors.btnActive, 'transparent')}
+        color={useColorModeValue(colors.textActive, colors.textInactive)}
         onClick={() => setColorMode('light')}
       >
         <BsFillSunFill size={20} />
@@ -28,7 +32,8 @@ function ThemeSwitch() {
       </Button>
       <Button
         {...buttonStyles}
-        bgColor={colorMode === 'dark' ? 'gray.600' : 'transparent'}
+        bgColor={useColorModeValue('transparent', colors.btnActive)}
+        color={useColorModeValue(colors.textInactive, colors.textActive)}
         onClick={() => setColorMode('dark')}
       >
         <BsMoonStarsFill size={18} />

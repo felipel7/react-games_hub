@@ -4,6 +4,7 @@ import GamesGrid from './components/GamesGrid';
 import GenreList from './components/GenreList';
 import Navbar from './components/Navbar';
 import PlatformSelector from './components/PlatformSelector';
+import SearchInput from './components/SearchInput';
 import SortSelector from './components/SortSelector';
 import ThemeSwitch from './components/ThemeSwitch';
 import { Platform } from './hooks/useGames';
@@ -42,6 +43,7 @@ function App() {
             p={4}
             minH="calc(100vh - 24px)"
           >
+            <SearchInput />
             <GenreList
               selectedGenre={gameQuery.genre}
               onSelectGenre={genre => setGameQuery({ ...gameQuery, genre })}

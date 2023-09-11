@@ -8,11 +8,14 @@ import ThemeSwitch from './components/ThemeSwitch';
 import { Platform } from './hooks/useGames';
 import { Genre } from './hooks/useGenres';
 
+export interface GameQuery {
+  genre: Genre | null;
+  platform: Platform | null;
+}
+
 function App() {
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
-    null
-  );
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+
   return (
     <Grid
       templateAreas={{
@@ -38,8 +41,8 @@ function App() {
             minH="calc(100vh - 24px)"
           >
             <GenreList
-              onSelectGenre={setSelectedGenre}
-              selectedGenre={selectedGenre}
+              selectedGenre={gameQuery.genre}
+              onSelectGenre={genre => setGameQuery({ ...gameQuery, genre })}
             />
             <ThemeSwitch />
           </VStack>
@@ -47,13 +50,12 @@ function App() {
       </Show>
       <GridItem area="main" padding={4}>
         <PlatformSelector
-          selectedPlatform={selectedPlatform}
-          onSelectPlatform={setSelectedPlatform}
+          selectedPlatform={gameQuery.platform}
+          onSelectPlatform={platform =>
+            setGameQuery({ ...gameQuery, platform })
+          }
         />
-        <GamesGrid
-          selectedGenre={selectedGenre}
-          selectedPlatform={selectedPlatform}
-        />
+        <GamesGrid gameQuery={gameQuery} />
       </GridItem>
     </Grid>
   );

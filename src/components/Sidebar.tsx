@@ -38,8 +38,10 @@ function Sidebar({ gameQuery, setGameQuery }: SidebarProps) {
         Genres
       </Text>
       <GenreList
-        selectedGenre={gameQuery.genre}
-        onSelectGenre={genre => setGameQuery({ ...gameQuery, genre })}
+        selectedGenreId={gameQuery.genreId}
+        onSelectGenre={genre =>
+          setGameQuery({ ...gameQuery, genreId: genre.id })
+        }
       />
       <ThemeSwitch />
     </VStack>

@@ -1,12 +1,10 @@
-import { Grid, GridItem, HStack, Show, VStack } from '@chakra-ui/react';
+import { Grid, GridItem, HStack, Show } from '@chakra-ui/react';
 import { useState } from 'react';
 import GamesGrid from './components/GamesGrid';
-import GenreList from './components/GenreList';
 import Navbar from './components/Navbar';
 import PlatformSelector from './components/PlatformSelector';
-import SearchInput from './components/SearchInput';
+import Sidebar from './components/Sidebar';
 import SortSelector from './components/SortSelector';
-import ThemeSwitch from './components/ThemeSwitch';
 import { Platform } from './hooks/useGames';
 import { Genre } from './hooks/useGenres';
 
@@ -24,7 +22,7 @@ function App() {
     <Grid
       templateAreas={{
         base: `"nav" "main"`,
-        lg: `"nav nav" "aside main"`,
+        lg: `"aside nav" "aside main"`,
       }}
       templateColumns={{
         base: '1fr',
@@ -32,32 +30,11 @@ function App() {
       }}
     >
       <GridItem area="nav">
-        <Navbar />
+        <Navbar gameQuery={gameQuery} />
       </GridItem>
       <Show above="lg">
         <GridItem area="aside">
-          <VStack
-            justifyContent="space-between"
-            pos="sticky"
-            top={6}
-            left={0}
-            p={4}
-            minH="calc(100vh - 24px)"
-          >
-            <SearchInput
-              onSearch={searchText =>
-                setGameQuery({
-                  ...gameQuery,
-                  searchText,
-                })
-              }
-            />
-            <GenreList
-              selectedGenre={gameQuery.genre}
-              onSelectGenre={genre => setGameQuery({ ...gameQuery, genre })}
-            />
-            <ThemeSwitch />
-          </VStack>
+          <Sidebar gameQuery={gameQuery} setGameQuery={setGameQuery} />
         </GridItem>
       </Show>
       <GridItem area="main" padding={4}>

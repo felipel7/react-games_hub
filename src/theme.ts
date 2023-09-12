@@ -42,6 +42,9 @@ const theme = extendTheme({
           border: '1px solid',
           borderColor: mode('light.borderColor', 'dark.borderColor')(props),
         }),
+        dropdownButton: (props: ThemeComponentProps) => ({
+          bg: mode('light.btnGroupBg', 'dark.btnGroupBg')(props),
+        }),
       },
     },
   },

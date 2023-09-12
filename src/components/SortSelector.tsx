@@ -20,7 +20,11 @@ function SortSelector({ onSelectSortOrders, sortOrder }: SortSelectorProps) {
 
   return (
     <Menu>
-      <MenuButton as={Button} rightIcon={<BsChevronDown />}>
+      <MenuButton
+        as={Button}
+        rightIcon={<BsChevronDown />}
+        variant="dropdownButton"
+      >
         Order by: {currentSortOrder?.label || 'Relevance'}
       </MenuButton>
       <MenuList>

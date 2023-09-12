@@ -18,7 +18,11 @@ function PlatformSelector({
 
   return (
     <Menu>
-      <MenuButton as={Button} rightIcon={<BsChevronDown />}>
+      <MenuButton
+        as={Button}
+        rightIcon={<BsChevronDown />}
+        variant="dropdownButton"
+      >
         {selectedPlatform?.name || 'Platforms'}
       </MenuButton>
       <MenuList>

@@ -12,7 +12,7 @@ function GamesGrid({ gameQuery }: GamesGridProps) {
   const { data, error, isLoading } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-  if (error) return <Text>{error}</Text>;
+  if (error) return <Text>{error.message}</Text>;
 
   return (
     <SimpleGrid
@@ -22,7 +22,8 @@ function GamesGrid({ gameQuery }: GamesGridProps) {
     >
       {isLoading &&
         skeletons.map(skeleton => <GameCardSkeleton key={skeleton} />)}
-      {!isLoading && data.map(game => <GameCard key={game.id} game={game} />)}
+      {!isLoading &&
+        data?.results.map(game => <GameCard key={game.id} game={game} />)}
     </SimpleGrid>
   );
 }

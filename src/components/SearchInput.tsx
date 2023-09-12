@@ -22,14 +22,13 @@ function SearchInput({ onSearch }: SearchInputProps) {
       }}
     >
       <InputGroup>
-        <InputLeftElement children={<BiSearch size={20} color={'#4D546B'} />} />
+        <InputLeftElement children={<BiSearch size={20} color="#4D546B" />} />
         <Input
-          _hover={{
-            filter: 'brightness(96%)',
-          }}
+          _hover={{ filter: 'brightness(95%)' }}
+          _placeholder={{ color: '#4D546B' }}
           bg={useColorModeValue('light.btnGroupBg', 'dark.btnGroupBg')}
           borderRadius={10}
-          placeholder="Search..."
+          placeholder="Search games..."
           ref={ref}
           variant="filled"
         />

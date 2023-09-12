@@ -20,7 +20,12 @@ function ThemeSwitch() {
   };
 
   return (
-    <ButtonGroup borderRadius={12} bgColor={colors.btnGroupBg} p={2}>
+    <ButtonGroup
+      borderRadius={12}
+      bgColor={colors.btnGroupBg}
+      p={2}
+      marginTop="auto"
+    >
       <Button
         {...buttonStyles}
         bgColor={useColorModeValue(colors.btnActive, 'transparent')}

@@ -6,19 +6,17 @@ import {
 } from '@chakra-ui/react';
 import { useRef } from 'react';
 import { BiSearch } from 'react-icons/bi';
+import useGameStore from '../store';
 
-interface SearchInputProps {
-  onSearch: (searchText: string) => void;
-}
-
-function SearchInput({ onSearch }: SearchInputProps) {
+function SearchInput() {
   const ref = useRef<HTMLInputElement>(null);
+  const setSearchText = useGameStore(s => s.setSearchText);
 
   return (
     <form
       onSubmit={e => {
         e.preventDefault();
-        if (ref.current) onSearch(ref.current.value);
+        if (ref.current) setSearchText(ref.current.value);
       }}
     >
       <InputGroup>

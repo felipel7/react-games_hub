@@ -1,17 +1,10 @@
 import { Divider, Text, VStack, useColorModeValue } from '@chakra-ui/react';
-import { Dispatch, SetStateAction } from 'react';
-import { GameQuery } from '../App';
 import GenreList from './GenreList';
 import SearchInput from './SearchInput';
 import ThemeSwitch from './ThemeSwitch';
 import UserProfile from './UserProfile';
 
-interface SidebarProps {
-  gameQuery: GameQuery;
-  setGameQuery: Dispatch<SetStateAction<GameQuery>>;
-}
-
-function Sidebar({ gameQuery, setGameQuery }: SidebarProps) {
+function Sidebar() {
   return (
     <VStack
       pos="sticky"
@@ -22,14 +15,7 @@ function Sidebar({ gameQuery, setGameQuery }: SidebarProps) {
       alignItems="flex-start"
     >
       <UserProfile />
-      <SearchInput
-        onSearch={searchText =>
-          setGameQuery({
-            ...gameQuery,
-            searchText,
-          })
-        }
-      />
+      <SearchInput />
       <Divider marginBlock={4} />
       <Text
         px={4}
@@ -37,12 +23,7 @@ function Sidebar({ gameQuery, setGameQuery }: SidebarProps) {
       >
         Genres
       </Text>
-      <GenreList
-        selectedGenreId={gameQuery.genreId}
-        onSelectGenre={genre =>
-          setGameQuery({ ...gameQuery, genreId: genre.id })
-        }
-      />
+      <GenreList />
       <ThemeSwitch />
     </VStack>
   );

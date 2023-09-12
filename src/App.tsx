@@ -14,6 +14,7 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  searchText: string;
 }
 
 function App() {
@@ -43,7 +44,14 @@ function App() {
             p={4}
             minH="calc(100vh - 24px)"
           >
-            <SearchInput />
+            <SearchInput
+              onSearch={searchText =>
+                setGameQuery({
+                  ...gameQuery,
+                  searchText,
+                })
+              }
+            />
             <GenreList
               selectedGenre={gameQuery.genre}
               onSelectGenre={genre => setGameQuery({ ...gameQuery, genre })}

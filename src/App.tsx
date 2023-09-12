@@ -1,4 +1,5 @@
 import { Grid, GridItem, HStack, Show } from '@chakra-ui/react';
+import GameHeading from './components/GameHeading';
 import GamesGrid from './components/GamesGrid';
 import Navbar from './components/Navbar';
 import PlatformSelector from './components/PlatformSelector';
@@ -26,8 +27,11 @@ function App() {
           <Sidebar />
         </GridItem>
       </Show>
-      <GridItem area="main" padding={4}>
-        <HStack spacing={4}>
+      <GridItem area="main" p={4}>
+        <Show below="lg">
+          <GameHeading />
+        </Show>
+        <HStack spacing={4} mt={{ base: 4, lg: 0 }}>
           <PlatformSelector />
           <SortSelector />
         </HStack>

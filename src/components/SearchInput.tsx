@@ -18,6 +18,7 @@ function SearchInput() {
         e.preventDefault();
         if (ref.current) setSearchText(ref.current.value);
       }}
+      style={{ width: '100%' }}
     >
       <InputGroup>
         <InputLeftElement children={<BiSearch size={20} color="#4D546B" />} />

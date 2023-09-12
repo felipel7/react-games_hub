@@ -15,8 +15,8 @@ function GenreList({ onSelectGenre, selectedGenre }: GenreListProps) {
   if (isLoading) return <Spinner />;
 
   return (
-    <List>
-      {data.map(genre => (
+    <List width="full">
+      {data.slice(0, 13).map(genre => (
         <ListItem key={genre.id}>
           <Button
             alignItems="center"
@@ -25,9 +25,9 @@ function GenreList({ onSelectGenre, selectedGenre }: GenreListProps) {
             gap={3}
             justifyContent="flex-start"
             onClick={() => onSelectGenre(genre)}
+            width="full"
             px={4}
-            py={2}
-            width="100%"
+            fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'}
             variant={`${
               genre.id === selectedGenre?.id ? 'outlineBorder' : 'Link'
             }`}
@@ -36,6 +36,7 @@ function GenreList({ onSelectGenre, selectedGenre }: GenreListProps) {
               borderRadius={3}
               boxSize="24px"
               src={getCroppedImageUrl(genre.image_background)}
+              objectFit="cover"
             />
             {genre.name}
           </Button>

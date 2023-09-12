@@ -16,7 +16,7 @@ function GenreList({ onSelectGenre, selectedGenre }: GenreListProps) {
 
   return (
     <List width="full">
-      {data.slice(0, 13).map(genre => (
+      {data?.results.slice(0, 13).map(genre => (
         <ListItem key={genre.id}>
           <Button
             alignItems="center"

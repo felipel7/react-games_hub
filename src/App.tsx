@@ -28,6 +28,7 @@ function App() {
         base: '1fr',
         lg: '276px 1fr',
       }}
+      gridTemplateRows="auto 1fr"
     >
       <GridItem area="nav">
         <Navbar gameQuery={gameQuery} />

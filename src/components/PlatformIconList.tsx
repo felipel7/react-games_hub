@@ -32,7 +32,7 @@ function PlatformIconList({ platforms }: PlatformIconListProps) {
 
   return (
     <HStack marginBlock={1}>
-      {platforms.map(platform => (
+      {platforms?.map(platform => (
         <Icon
           as={iconMap[platform.slug]}
           key={platform.id}

@@ -25,11 +25,13 @@ function GameCard({ game }: GameCardProps) {
       <CardBody>
         <HStack justifyContent="space-between" marginBlockEnd={3}>
           <PlatformIconList
-            platforms={game.parent_platforms.map(p => p.platform)}
+            platforms={game.parent_platforms?.map(p => p.platform)}
           />
           <GameScore score={game.metacritic} />
         </HStack>
-        <Heading fontSize="2xl">{game.name}</Heading>
+        <Heading fontSize="2xl" isTruncated noOfLines={3} whiteSpace="normal">
+          {game.name}
+        </Heading>
       </CardBody>
     </Card>
   );

@@ -16,7 +16,7 @@ function GameHeading() {
   `;
 
   return (
-    <Heading as="h1" fontSize="4xl" mt={{ base: 0, lg: 4 }}>
+    <Heading as="h1" fontSize="4xl" mt={{ base: 0, lg: 4 }} mb={8}>
       {heading}
     </Heading>
   );

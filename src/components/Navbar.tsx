@@ -1,16 +1,10 @@
-import { HStack, Show } from '@chakra-ui/react';
-import GameHeading from './GameHeading';
+import { HStack } from '@chakra-ui/react';
 import SearchInput from './SearchInput';
 
 function Navbar() {
   return (
     <HStack p={4}>
-      <Show below="lg">
-        <SearchInput />
-      </Show>
-      <Show above="lg">
-        <GameHeading />
-      </Show>
+      <SearchInput />
     </HStack>
   );
 }

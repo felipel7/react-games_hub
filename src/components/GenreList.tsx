@@ -1,4 +1,5 @@
 import { Button, Image, List, ListItem, Spinner } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 import useGenres from '../hooks/useGenres';
 import getCroppedImageUrl from '../services/image-url';
 import useGameStore from '../store';
@@ -7,6 +8,7 @@ function GenreList() {
   const { data, isLoading, error } = useGenres();
   const selectedGenreId = useGameStore(s => s.gameQuery.genreId);
   const setSelectedGenreId = useGameStore(s => s.setGenreId);
+  const navigate = useNavigate();
 
   if (error) return null;
 
@@ -22,7 +24,10 @@ function GenreList() {
             fontSize="lg"
             gap={3}
             justifyContent="flex-start"
-            onClick={() => setSelectedGenreId(genre.id)}
+            onClick={() => {
+              navigate('/');
+              setSelectedGenreId(genre.id);
+            }}
             width="full"
             px={4}
             fontWeight={genre.id == selectedGenreId ? 'bold' : 'normal'}

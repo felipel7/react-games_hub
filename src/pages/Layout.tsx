@@ -2,6 +2,7 @@ import { Grid, GridItem, Show } from '@chakra-ui/react';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 function Layout() {
   return (
@@ -26,6 +27,7 @@ function Layout() {
         </GridItem>
       </Show>
       <GridItem area="main" p={4}>
+        <Breadcrumbs />
         <Outlet />
       </GridItem>
     </Grid>

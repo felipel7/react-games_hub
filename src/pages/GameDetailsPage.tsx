@@ -25,6 +25,7 @@ function GameDetailsPage() {
         base: '1fr',
         lg: '2fr 3fr',
       }}
+      paddingBlock={2}
     >
       <GridItem area="info">
         <Heading>{game.name}</Heading>

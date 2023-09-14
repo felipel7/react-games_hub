@@ -1,12 +1,14 @@
-import { SimpleGrid, Spinner, Text } from '@chakra-ui/react';
+import { Link, SimpleGrid, Spinner, Text } from '@chakra-ui/react';
 import { Fragment } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import useGames from '../hooks/useGames';
+import useGameStore from '../store';
 import GameCard from './GameCard';
 import GameCardSkeleton from './GameCardSkeleton';
 
 function GamesGrid() {
   const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames();
+  const clearFilters = useGameStore(s => s.clearFilters);
   const skeletons = [...Array(12).keys()].map(i => i);
 
   if (error) return <Text>{error.message}</Text>;
@@ -34,9 +36,14 @@ function GamesGrid() {
         {!isLoading &&
           data?.pages.map((page, index) => (
             <Fragment key={index}>
-              {page.results.map(game => (
-                <GameCard key={game.id} game={game} />
-              ))}
+              {page.results.length > 0 ? (
+                page.results.map(game => <GameCard key={game.id} game={game} />)
+              ) : (
+                <Text>
+                  No results found.{' '}
+                  <Link onClick={clearFilters}>Clear filters</Link>
+                </Text>
+              )}
             </Fragment>
           ))}
       </SimpleGrid>

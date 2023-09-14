@@ -25,6 +25,12 @@ class APIClient<T> {
       .get<FetchResponse<T>>(this.endpoint, config)
       .then(res => res.data);
   };
+
+  get = (slug: string) => {
+    return axiosInstance
+      .get<T>(this.endpoint + '/' + slug)
+      .then(res => res.data);
+  };
 }
 
 export default APIClient;

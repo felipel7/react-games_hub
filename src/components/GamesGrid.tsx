@@ -22,6 +22,7 @@ function GamesGrid() {
       hasMore={!!hasNextPage}
       next={() => fetchNextPage()}
       loader={<Spinner />}
+      style={{ overflow: 'initial' }}
     >
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}

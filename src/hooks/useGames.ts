@@ -6,10 +6,12 @@ import { Platform } from './usePlatforms';
 
 export interface Game {
   id: number;
-  name: string;
   background_image: string;
-  parent_platforms: { platform: Platform }[];
+  description_raw: string;
   metacritic: number;
+  name: string;
+  parent_platforms: { platform: Platform }[];
+  slug: string;
 }
 
 const apiClient = new APIClient<Game>('/games');

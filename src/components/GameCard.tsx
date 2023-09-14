@@ -6,6 +6,7 @@ import {
   Image,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import { Game } from '../hooks/useGames';
 import getCroppedImageUrl from '../services/image-url';
 import GameScore from './GameScore';
@@ -20,6 +21,10 @@ function GameCard({ game }: GameCardProps) {
     <Card
       overflow="hidden"
       bg={useColorModeValue('light.btnGroupBg', 'dark.btnGroupBg')}
+      _hover={{
+        transform: 'scale(1.03)',
+        transition: 'transform .15s ease-in',
+      }}
     >
       <Image src={getCroppedImageUrl(game.background_image)} />
       <CardBody>
@@ -30,7 +35,7 @@ function GameCard({ game }: GameCardProps) {
           <GameScore score={game.metacritic} />
         </HStack>
         <Heading fontSize="2xl" isTruncated noOfLines={3} whiteSpace="normal">
-          {game.name}
+          <Link to={`/games/${game.slug}`}>{game.name}</Link>
         </Heading>
       </CardBody>
     </Card>

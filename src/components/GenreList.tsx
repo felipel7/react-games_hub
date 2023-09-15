@@ -1,4 +1,4 @@
-import { Button, Image, List, ListItem, Spinner } from '@chakra-ui/react';
+import { Button, Image, List, ListItem, Spinner, Text } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import useGenres from '../hooks/useGenres';
 import getCroppedImageUrl from '../services/image-url';
@@ -16,12 +16,13 @@ function GenreList() {
 
   return (
     <List width="full">
-      {data?.results.slice(0, 13).map(genre => (
+      {data?.results.slice(0, 15).map(genre => (
         <ListItem key={genre.id}>
           <Button
             alignItems="center"
             borderRadius={10}
             fontSize="lg"
+            fontWeight={genre.id == selectedGenreId ? 'bold' : 'normal'}
             gap={3}
             justifyContent="flex-start"
             onClick={() => {
@@ -30,18 +31,17 @@ function GenreList() {
             }}
             width="full"
             px={4}
-            fontWeight={genre.id == selectedGenreId ? 'bold' : 'normal'}
             variant={`${
               genre.id === selectedGenreId ? 'outlineBorder' : 'Link'
             }`}
           >
             <Image
               borderRadius={3}
-              boxSize="24px"
+              boxSize={6}
               src={getCroppedImageUrl(genre.image_background)}
               objectFit="cover"
             />
-            {genre.name}
+            <Text isTruncated>{genre.name}</Text>
           </Button>
         </ListItem>
       ))}

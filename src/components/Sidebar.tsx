@@ -7,12 +7,14 @@ import UserProfile from './UserProfile';
 function Sidebar() {
   return (
     <VStack
+      alignItems="flex-start"
+      gap={3}
+      h="100vh"
+      overflowX="hidden"
+      overflowY="auto"
+      p={4}
       pos="sticky"
       top={0}
-      p={4}
-      gap={3}
-      minH="100vh"
-      alignItems="flex-start"
     >
       <UserProfile />
       <SearchInput />

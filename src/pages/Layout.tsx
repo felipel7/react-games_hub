@@ -13,7 +13,7 @@ function Layout() {
       }}
       templateColumns={{
         base: '1fr',
-        lg: '276px 1fr',
+        lg: '18rem 1fr',
       }}
     >
       <Show below="lg">

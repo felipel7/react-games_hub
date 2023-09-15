@@ -30,7 +30,7 @@ function SearchInput() {
       <InputGroup>
         <InputLeftElement
           as="button"
-          children={<BiSearch size={20} color="#4D546B" />}
+          children={<BiSearch fontSize="1.25rem" color="#4D546B" />}
           type="submit"
         />
         <Input
@@ -47,7 +47,7 @@ function SearchInput() {
         {value && (
           <InputRightElement
             as="button"
-            children={<BiX size={20} color="#4D546B" />}
+            children={<BiX fontSize="1.25rem" color="#4D546B" />}
             onClick={() => {
               setValue('');
               if (ref.current) {

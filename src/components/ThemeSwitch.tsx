@@ -32,7 +32,7 @@ function ThemeSwitch() {
         color={useColorModeValue(colors.textActive, colors.textInactive)}
         onClick={() => setColorMode('light')}
       >
-        <BsFillSunFill size={20} />
+        <BsFillSunFill fontSize="1rem" />
         Light
       </Button>
       <Button
@@ -41,7 +41,7 @@ function ThemeSwitch() {
         color={useColorModeValue(colors.textInactive, colors.textActive)}
         onClick={() => setColorMode('dark')}
       >
-        <BsMoonStarsFill size={18} />
+        <BsMoonStarsFill fontSize="1rem" />
         Dark
       </Button>
     </ButtonGroup>

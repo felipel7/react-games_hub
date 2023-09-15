@@ -39,7 +39,7 @@ function UserProfile() {
           letterSpacing="wider"
           isExternal
         >
-          Github Profile <BiLinkExternal size={14} />
+          Github Profile <BiLinkExternal fontSize=".9rem" />
         </Link>
       </WrapItem>
     </Wrap>

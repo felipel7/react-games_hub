@@ -20,13 +20,13 @@ function Breadcrumbs() {
 
   return (
     <Breadcrumb
-      separator={<MdOutlineChevronRight size={16} />}
+      separator={<MdOutlineChevronRight fontSize="1rem" />}
       fontSize="xs"
       color="gray.500"
     >
       <BreadcrumbItem>
         <BreadcrumbLink as={Link} to="/">
-          <MdHome size={16} />
+          <MdHome size="1rem" />
         </BreadcrumbLink>
       </BreadcrumbItem>
 

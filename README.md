@@ -10,7 +10,7 @@ This project is a Game Catalog built using Chakra, TypeScript, and React. It all
 
 #### Vercel live demo:
 
-[<image src='https://upload.wikimedia.org/wikipedia/commons/5/5e/Vercel_logo_black.svg' alt='demo version'> Click here to check out the live demo of the project.](https://react-games-catalog-six.vercel.app/)
+[<div><image src='https://upload.wikimedia.org/wikipedia/commons/5/5e/Vercel_logo_black.svg' alt='demo version' height="40px"></div> Click here to check out the live demo of the project.](https://react-games-catalog-six.vercel.app/)
 
 <br />
 
@@ -28,15 +28,15 @@ Dark mode:
 
 <br />
 
-Light mode:
-
-<img src='./src/assets/s1-light.png' />
-
-<br />
-
 Details page:
 
 <img src='./src/assets/s2.png' />
+
+<br />
+
+Light mode:
+
+<img src='./src/assets/s1-light.png' />
 
 <br />
 
@@ -64,37 +64,34 @@ To get started with this project, follow these simple steps:
 git clone https://github.com/felipel7/react-games-catalog.git
 ```
 
-Navigate to the project directory:
+2. Navigate to the project directory:
 
 ```bash
 cd react-games-catalog
 ```
 
-Build the Docker image:
+3. Install dependencies:
 
 ```bash
-docker build -t games .
+yarn
 ```
 
-Run the Docker container:
+4. Generate a Rawg API key at [rawg.io](https://rawg.io/) and insert it into the .env file as shown below:
+
+```env
+VITE_BASE_URL=https://api.rawg.io/api
+VITE_API_KEY=your_api_key_here
+```
+
+5. Run the app:
 
 ```bash
-./run.sh
+yarn dev
 ```
 
 _This will kickstart the development server, and you can access the application at http://localhost:5173_.
 
 <br />
-
-### Development
-
-If you plan to work on the code locally and use tools like TypeScript in Visual Studio Code, you'll need to install the project's dependencies locally. You can do this by running the following command in the project directory:
-
-```bash
-yarn install
-```
-
-_This will install all the necessary dependencies and set up the local node_modules folder for you_.
 
 <br />
 

@@ -1,26 +1,28 @@
-# Games Hub
+# Games-Hub
 
 <br />
 
-### Description:
+## Description:
 
 This project is a Game Catalog built using Chakra, TypeScript, and React. It allows users to filter games by genre and search for their favorite titles. The project was inspired by the layout of [rawg api](https://rawg.io/) and was created for the sole purpose of practicing React and TypeScript concepts.
 
 <br />
 
-#### Vercel live demo:
+## Live Demo
 
-[<div><image src='https://upload.wikimedia.org/wikipedia/commons/5/5e/Vercel_logo_black.svg' alt='demo version' height="40px"></div> Click here to check out the live demo of the project.](https://react-games-catalog-six.vercel.app/)
+Check out the live demo of Games Hub on Vercel:
+
+[![Live Demo](https://vercel.com/button)](https://react-games-catalog-six.vercel.app/)
 
 <br />
 
-### API Source:
+## API Source:
 
 The project utilizes the rawg API for fetching game data, including details, genres, and more.
 
 <br />
 
-### Screenshots:
+## Screenshots:
 
 Dark mode:
 
